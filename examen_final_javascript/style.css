@@ -1,0 +1,237 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Background animé */
+
+.background{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:linear-gradient(
+        135deg,
+        #0f172a,
+        #1e293b,
+        #2563eb
+    );
+
+    background-size:400% 400%;
+    animation:bgAnimation 10s infinite alternate;
+    z-index:-1;
+}
+
+@keyframes bgAnimation{
+
+    0%{
+        background-position:left;
+    }
+
+    100%{
+        background-position:right;
+    }
+
+}
+
+/* Container */
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:40px auto;
+    display:flex;
+    gap:30px;
+}
+
+/* LEFT SIDE */
+
+.left-side{
+    width:35%;
+    background:rgba(255,255,255,0.08);
+    border-radius:20px;
+    padding:25px;
+    backdrop-filter:blur(10px);
+
+    animation:leftAnimation 1s ease;
+}
+
+@keyframes leftAnimation{
+
+    from{
+        transform:translateX(-100px);
+        opacity:0;
+    }
+
+    to{
+        transform:translateX(0);
+        opacity:1;
+    }
+
+}
+
+.profile-card{
+    text-align:center;
+}
+
+.profile-card img{
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    object-fit:contain;
+    background: white;
+    border:5px solid #3b82f6;
+
+    transition:0.5s;
+}
+
+.profile-card img:hover{
+    transform:scale(1.05);
+}
+
+.profile-card h1{
+    margin-top:20px;
+    font-size:30px;
+}
+
+.job{
+    margin-top:10px;
+    color:#93c5fd;
+}
+
+.card{
+    margin-top:35px;
+}
+
+.card h2{
+    margin-bottom:20px;
+    color:#60a5fa;
+}
+
+.card p{
+    margin-bottom:15px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+/* Skills */
+
+.skill{
+    margin-bottom:20px;
+}
+
+.bar{
+    width:100%;
+    height:10px;
+    background:#1e293b;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:5px;
+}
+
+.progress{
+    height:100%;
+    border-radius:20px;
+}
+
+/* Couleurs skills */
+
+.html{
+    width:90%;
+    background:#f97316;
+}
+
+.js{
+    width:85%;
+    background:#facc15;
+}
+
+.python{
+    width:80%;
+    background:#22c55e;
+}
+
+.sql{
+    width:75%;
+    background:#8b5cf6;
+}
+
+/* RIGHT SIDE */
+
+.right-side{
+    width:65%;
+}
+
+.section{
+    background:rgba(255,255,255,0.08);
+    border-radius:20px;
+    padding:25px;
+    margin-bottom:25px;
+
+    backdrop-filter:blur(10px);
+}
+
+.section h2{
+    margin-bottom:20px;
+    color:#60a5fa;
+}
+
+.box{
+    margin-top:20px;
+    background:rgba(255,255,255,0.05);
+    border-left:4px solid #60a5fa;
+    padding:15px;
+    border-radius:10px;
+
+    transition:0.4s;
+}
+
+.box:hover{
+    transform:translateY(-5px);
+}
+
+.box h3{
+    margin-bottom:10px;
+}
+
+.box span{
+    color:#93c5fd;
+    font-size:14px;
+}
+
+/* Animation scroll */
+
+.fade{
+    opacity:0;
+    transform:translateY(40px);
+
+    transition:1s;
+}
+
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+    .container{
+        flex-direction:column;
+    }
+
+    .left-side,
+    .right-side{
+        width:100%;
+    }
+
+}
